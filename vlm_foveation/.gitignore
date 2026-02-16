@@ -23,7 +23,10 @@ reports/
 # Large datasets and artifacts
 cache/
 data/
-datasets/*
+datasets/*.png
+datasets/*.jpeg
+datasets/*.jpg
+datasets/*.npy
 !datasets/README.md
 experiments/*/artifacts/
 
