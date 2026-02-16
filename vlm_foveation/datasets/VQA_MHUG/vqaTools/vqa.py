@@ -140,7 +140,7 @@ class VQA:
             return 0
         for ann in anns:
             quesId = ann['question_id']
-            print('Question: %s' %(self.qqa[quesId]['question']))
+            print('Question: %s' %(self.qqa[quesId]['question'])) # type: ignore
             for ans in ann['answers']:
                 print("Answer %d: %s" %(ans['answer_id'], ans['answer']))
         
@@ -168,11 +168,11 @@ class VQA:
         for ann in anns:
             quesId 			     = ann['question_id']
             if res.dataset['task_type'] == 'Multiple Choice':
-                assert ann['answer'] in self.qqa[quesId]['multiple_choices'], 'predicted answer is not one of the multiple choices'
+                assert ann['answer'] in self.qqa[quesId]['multiple_choices'], 'predicted answer is not one of the multiple choices' # type: ignore
             qaAnn                = self.qa[quesId]
-            ann['image_id']      = qaAnn['image_id'] 
-            ann['question_type'] = qaAnn['question_type']
-            ann['answer_type']   = qaAnn['answer_type']
+            ann['image_id']      = qaAnn['image_id']       # type: ignore
+            ann['question_type'] = qaAnn['question_type']  # type: ignore
+            ann['answer_type']   = qaAnn['answer_type']    # type: ignore
         print('DONE (t=%0.2fs)'%((datetime.datetime.utcnow() - time_t).total_seconds()))
 
         res.dataset['annotations'] = anns

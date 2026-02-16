@@ -40,7 +40,7 @@ if os.path.isfile(img_path):
 else:
     print(f"Image not found: {img_path}")
 
-exit()
+# exit()
 
 # load and display QA annotations for given question types
 """
@@ -48,9 +48,9 @@ All possible quesTypes for abstract and mscoco has been provided in respective t
 """
 annIds = vqa.getQuesIds(quesTypes='what is');   
 anns = vqa.loadQA(annIds)
-randomAnn = random.choice(anns)
+randomAnn = random.choice(anns)  # type: ignore
 vqa.showQA([randomAnn])
-imgId = randomAnn['image_id']
+imgId = randomAnn['image_id']    # type: ignore
 imgFilename = 'COCO_' + dataSubType + '_'+ str(imgId).zfill(12) + '.jpg'
 if os.path.isfile(imgDir + imgFilename):
 	I = io.imread(imgDir + imgFilename)
@@ -67,9 +67,9 @@ other
 """
 annIds = vqa.getQuesIds(ansTypes='yes/no');   
 anns = vqa.loadQA(annIds)
-randomAnn = random.choice(anns)
+randomAnn = random.choice(anns)  # type: ignore
 vqa.showQA([randomAnn])
-imgId = randomAnn['image_id']
+imgId = randomAnn['image_id']    # type: ignore
 imgFilename = 'COCO_' + dataSubType + '_'+ str(imgId).zfill(12) + '.jpg'
 if os.path.isfile(imgDir + imgFilename):
 	I = io.imread(imgDir + imgFilename)
@@ -86,9 +86,9 @@ Above method can be used to retrieve imageIds for given question Ids or given qu
 ids = vqa.getImgIds()
 annIds = vqa.getQuesIds(imgIds=random.sample(ids,5));  
 anns = vqa.loadQA(annIds)
-randomAnn = random.choice(anns)
+randomAnn = random.choice(anns)  # type: ignore
 vqa.showQA([randomAnn])  
-imgId = randomAnn['image_id']
+imgId = randomAnn['image_id']    # type: ignore
 imgFilename = 'COCO_' + dataSubType + '_'+ str(imgId).zfill(12) + '.jpg'
 if os.path.isfile(imgDir + imgFilename):
 	I = io.imread(imgDir + imgFilename)
