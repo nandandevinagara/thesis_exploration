@@ -23,11 +23,13 @@ vqa=VQA(annFile, quesFile)
 target_qid = 1000004
 anns = vqa.loadQA([target_qid])
 if not anns:
-    raise ValueError(f"Question {target_qid} not found")
+	raise ValueError(f"Question {target_qid} not found")
 
 vqa.showQA(anns)  # prints question + answers
-
-img_id = anns[0]["image_id"]
+# print("Type of anns:", type(anns[0]))  # list of dicts
+ann = anns[0]
+assert isinstance(anns[0], dict)
+img_id = ann["image_id"] # type: ignore
 img_filename = f"COCO_{dataSubType}_{img_id:012d}.jpg"
 img_path = os.path.join(imgDir, img_filename)
 if os.path.isfile(img_path):
