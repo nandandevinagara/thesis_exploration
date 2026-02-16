@@ -1,0 +1,33 @@
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+*.log
+*.tmp
+*.ckpt
+*.pt
+
+.env
+.env.*
+.venv/
+venv/
+
+build/
+dist/
+logs/
+runs/
+checkpoints/
+outputs/
+reports/
+
+# Large datasets and artifacts
+cache/
+data/
+datasets/*
+!datasets/README.md
+experiments/*/artifacts/
+
+# IDE/editor noise
+.vscode/
+.idea/
+.DS_Store
